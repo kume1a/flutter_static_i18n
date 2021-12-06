@@ -54,7 +54,7 @@ class Home extends StatelessWidget {
           children: <Widget>[
             const Text('test translation bellow'),
             Text(
-              'test'.tr,
+              'test'.i18n,
               style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w500,

@@ -30,7 +30,7 @@ extension StaticI18NX on String {
     return translationsWithNoCountry[StaticI18N.locale!.languageCode];
   }
 
-  String get tr {
+  String get i18n {
     // Returns the key if locale is null.
     if (StaticI18N.locale?.languageCode == null) return this;
 
@@ -63,10 +63,10 @@ extension StaticI18NX on String {
     }
   }
 
-  String trArgs([
+  String i18nArgs([
     List<String> args = const <String>[],
   ]) {
-    String key = tr;
+    String key = i18n;
     if (args.isNotEmpty) {
       for (final String arg in args) {
         key = key.replaceFirst(RegExp('%s'), arg);
@@ -75,15 +75,15 @@ extension StaticI18NX on String {
     return key;
   }
 
-  String trPlural([
+  String i18nPlural([
     String? pluralKey,
     int? i,
     List<String> args = const <String>[],
   ]) =>
-      i == 1 ? trArgs(args) : pluralKey!.trArgs(args);
+      i == 1 ? i18nArgs(args) : pluralKey!.i18nArgs(args);
 
-  String trParams([Map<String, String> params = const <String, String>{}]) {
-    String trans = tr;
+  String i18nParams([Map<String, String> params = const <String, String>{}]) {
+    String trans = i18n;
     if (params.isNotEmpty) {
       params.forEach((String key, String value) {
         trans = trans.replaceAll('@$key', value);
@@ -92,10 +92,10 @@ extension StaticI18NX on String {
     return trans;
   }
 
-  String trPluralParams([
+  String i18nPluralParams([
     String? pluralKey,
     int? i,
     Map<String, String> params = const <String, String>{},
   ]) =>
-      i == 1 ? trParams(params) : pluralKey!.trParams(params);
+      i == 1 ? i18nParams(params) : pluralKey!.i18nParams(params);
 }
