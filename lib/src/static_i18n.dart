@@ -30,6 +30,6 @@ class StaticI18N {
   static Future<void> changeLocale(Locale locale) async {
     StaticI18N.locale = locale;
 
-    await WidgetsBinding.instance.performReassemble();
+    await WidgetsBinding.instance?.performReassemble();
   }
 }
