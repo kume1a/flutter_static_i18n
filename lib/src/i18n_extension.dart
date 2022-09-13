@@ -69,7 +69,7 @@ extension StaticI18NX on String {
     String key = i18n;
     if (args.isNotEmpty) {
       for (final String arg in args) {
-        key = key.replaceFirst(RegExp('%s'), arg);
+        key = key.replaceFirst(RegExp('%\\d'), arg);
       }
     }
     return key;
